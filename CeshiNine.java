@@ -1,0 +1,101 @@
+package com.framedev;
+
+import static org.testng.Assert.assertTrue;
+
+import org.testng.annotations.Test;
+
+import com.webtest.core.BaseTest;
+
+//会议时间测试
+public class CeshiNine  extends BaseTest{
+	@Test(priority=1)
+	public void one() throws InterruptedException{
+		System.out.println("打印第30个测试用例");
+		LoginAction loginaction  = new LoginAction(webtest);
+		loginaction.loginByFront("admin","123456");
+		webtest.click("xpath=//span[contains(.,'流程')]");
+		webtest.click("xpath=//div[contains(.,' 流程申请')]");
+		webtest.click("xpath=//a[contains(.,'会议')]");
+		webtest.enterFrame("openinputiframe");
+		webtest.typeAndClear("xpath=//input[@name='title']", "会议啊");
+		webtest.click("xpath=//select[@class='inputs']");
+		webtest.click("xpath=//option[@value='会客室']");
+		webtest.click("xpath=//input[@name='startdt']");
+		webtest.click("xpath=//td[contains(.,'30')]");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'16')]");
+		webtest.click("xpath=//input[contains(@max,'59')]");
+		webtest.click("xpath=//font[contains(.,'30')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//input[@name='enddt']");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'16')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//a[contains(@id,'joinname')]");
+		webtest.click("xpath=//input[@xname='信呼开发团队']");
+		webtest.click("xpath=//input[contains(@value,'确定')]");
+		webtest.click("xpath=//input[@value='保存(S)']");
+		assertTrue(webtest.getHtmlSource().contains("截止时间必须大于开始时间"));
+	}
+	@Test(priority=2)
+	public void two() throws InterruptedException{
+		System.out.println("打印第31个测试用例");
+		webtest.refresh();
+		webtest.click("xpath=//span[contains(.,'流程')]");
+		webtest.click("xpath=//div[contains(.,' 流程申请')]");
+		webtest.click("xpath=//a[contains(.,'会议')]");
+		webtest.enterFrame("openinputiframe");
+		webtest.typeAndClear("xpath=//input[@name='title']", "会议啊");
+		webtest.click("xpath=//select[@class='inputs']");
+		webtest.click("xpath=//option[@value='会客室']");
+		webtest.click("xpath=//input[@name='startdt']");
+		webtest.click("xpath=//td[contains(.,'30')]");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'16')]");
+		webtest.click("xpath=//input[contains(@max,'59')]");
+		webtest.click("xpath=//font[contains(.,'30')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//input[@name='enddt']");
+		webtest.click("xpath=//td[@title='下个月']");
+		webtest.click("xpath=//td[contains(.,'1')]");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'00')]");
+		webtest.click("xpath=//input[contains(@max,'59')]");
+		webtest.click("xpath=//font[contains(.,'30')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//a[contains(@id,'joinname')]");
+		webtest.click("xpath=//input[@xname='信呼开发团队']");
+		webtest.click("xpath=//input[contains(@value,'确定')]");
+		webtest.click("xpath=//input[@value='保存(S)']");
+		assertTrue(webtest.getHtmlSource().contains("不允许跨天申请"));
+	}
+	@Test(priority=3)
+	public void three() throws InterruptedException{
+		System.out.println("打印第32个测试用例");
+		webtest.refresh();
+		webtest.click("xpath=//span[contains(.,'流程')]");
+		webtest.click("xpath=//div[contains(.,' 流程申请')]");
+		webtest.click("xpath=//a[contains(.,'会议')]");
+		webtest.enterFrame("openinputiframe");
+		webtest.typeAndClear("xpath=//input[@name='title']", "会议啊");
+		webtest.click("xpath=//select[@class='inputs']");
+		webtest.click("xpath=//option[@value='会客室']");
+		webtest.click("xpath=//input[@name='startdt']");
+		webtest.click("xpath=//td[contains(.,'23')]");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'16')]");
+		webtest.click("xpath=//input[contains(@max,'59')]");
+		webtest.click("xpath=//font[contains(.,'30')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//input[@name='enddt']");
+		webtest.click("xpath=//td[contains(.,'23')]");
+		webtest.click("xpath=//input[@max='23']");
+		webtest.click("xpath=//font[contains(.,'17')]");
+		webtest.click("xpath=//a[contains(.,'确定')]");
+		webtest.click("xpath=//a[contains(@id,'joinname')]");
+		webtest.click("xpath=//input[@xname='信呼开发团队']");
+		webtest.click("xpath=//input[contains(@value,'确定')]");
+		webtest.click("xpath=//input[@value='保存(S)']");
+		assertTrue(webtest.getHtmlSource().contains("开始时间必须大于当前时间"));
+	}
+}
