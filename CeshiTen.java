@@ -1,5 +1,5 @@
 package com.framedev;
-//»áÒéÊ±¼ä°´¼ü
+
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
@@ -7,51 +7,65 @@ import org.testng.annotations.Test;
 import com.webtest.core.BaseTest;
 
 public class CeshiTen extends BaseTest{
+		
 	@Test(priority=1)
 	public void one() throws InterruptedException{
-		System.out.println("´òÓ¡µÚ33¸ö²âÊÔÓÃÀı");
+		System.out.println("æ‰“å°ç¬¬33ä¸ªæµ‹è¯•ç”¨ä¾‹");
 		LoginAction loginaction  = new LoginAction(webtest);
 		loginaction.loginByFront("admin","123456");
-		webtest.click("xpath=//span[contains(.,'Á÷³Ì')]");
-		webtest.click("xpath=//div[@onclick='clickmenu(this,1,-1)']");
-		webtest.click("link=»áÒé");
+		webtest.click("xpath=//span[contains(.,'æµç¨‹')]");
+		webtest.click("id=menu_list_num42");
+		webtest.click("link=ä¼šè®®");
 		webtest.enterFrame("openinputiframe");
-		webtest.click("xpath=//input[@name='startdt']");
-		webtest.click("xpath=//td[contains(.,'30')]");
-		webtest.click("xpath=//input[@max='23']");
-		webtest.click("xpath=//font[contains(.,'16')]");
-		webtest.click("xpath=//input[contains(@max,'59')]");
-		webtest.click("xpath=//font[contains(.,'30')]");
-		webtest.click("xpath=//a[contains(.,'Çå¿Õ')]");
-		assertTrue(webtest.getHtmlSource().contains(""));
-		}
+		webtest.selectByValue("xpath=//select[@name='hyname']","ä¼šå®¢å®¤");
+		webtest.typeAndClear("xpath=//input[@name='title']", "ä¼šè®®");
+		webtest.runJs("var setDate=document.getElementsByName(\'startdt\')[0];setDate.removeAttribute('readonly')");
+        webtest.typeAndClear("name=startdt", "2017-12-01 17:00:00");
+        webtest.runJs("var setDate=document.getElementsByName(\'enddt\')[0];setDate.removeAttribute('readonly')");
+        webtest.typeAndClear("name=enddt", "2017-12-01 18:00:00");
+        webtest.click("xpath=//a[@id='btnchange_joinname']");
+        webtest.click("xpath=//input[contains(@xname,'ä¿¡å‘¼å¼€å‘å›¢é˜Ÿ')]");
+        webtest.click("xpath=//input[@value='ç¡®å®š']");
+        webtest.click("id=AltS");
+		webtest.click("xpath=//span[@id='indexuserl']");
+		webtest.click("xpath=//li[contains(.,' é€€å‡º')]");
+		webtest.click("xpath=//button[contains(.,'Â ç¡®å®š')]");
+		loginaction.loginByFront("ç£çŸ³","123456");
+		webtest.click("xpath=//a[contains(.,' Â æé†’ä¿¡æ¯2')]"); 
+		assertTrue(webtest.getHtmlSource().contains("åœ¨ä¼šå®¢å®¤,ä¸»é¢˜:ä¼šè®®"));
+        }
 	@Test(priority=2)
 	public void two() throws InterruptedException{
-		System.out.println("´òÓ¡µÚ34¸ö²âÊÔÓÃÀı");
-		webtest.refresh();
-		webtest.click("xpath=//span[contains(.,'Á÷³Ì')]");
-		webtest.click("xpath=//div[contains(.,' Á÷³ÌÉêÇë')]");
-		webtest.click("xpath=//a[contains(.,'»áÒé')]");
+		System.out.println("æ‰“å°ç¬¬34ä¸ªæµ‹è¯•ç”¨ä¾‹");
+		LoginAction loginaction  = new LoginAction(webtest);
+		loginaction.loginByFront("admin","123456");
+		webtest.click("xpath=//span[contains(.,'æµç¨‹')]");
+		webtest.click("id=menu_list_num42");
+		webtest.click("link=ä¼šè®®");
 		webtest.enterFrame("openinputiframe");
-		webtest.click("xpath=//input[@name='startdt']");
-		webtest.click("xpath=//td[contains(.,'30')]");
-		webtest.click("xpath=//input[@max='23']");
-		webtest.click("xpath=//font[contains(.,'16')]");
-		webtest.click("xpath=//input[contains(@max,'59')]");
-		webtest.click("xpath=//font[contains(.,'30')]");
-		webtest.click("xpath=//a[contains(.,'È·¶¨')]");
-		assertTrue(webtest.getHtmlSource().contains("2017-11-30 16:30"));
-		}
-	@Test(priority=2)
-	public void three() throws InterruptedException{
-		System.out.println("´òÓ¡µÚ35¸ö²âÊÔÓÃÀı");
-		webtest.refresh();
-		webtest.click("xpath=//span[contains(.,'Á÷³Ì')]");
-		webtest.click("xpath=//div[contains(.,' Á÷³ÌÉêÇë')]");
-		webtest.click("xpath=//a[contains(.,'»áÒé')]");
-		webtest.enterFrame("openinputiframe");
-		webtest.click("xpath=//input[@name='startdt']");
-		webtest.click("xpath=//a[contains(.,'')]");
-		assertTrue(webtest.getHtmlSource().contains(date));
-		}
+		webtest.selectByValue("xpath=//select[@name='hyname']","ä¼šå®¢å®¤");
+		webtest.typeAndClear("xpath=//input[@name='title']", "ä¼šè®®å•Š");
+		webtest.runJs("var setDate=document.getElementsByName(\'startdt\')[0];setDate.removeAttribute('readonly')");
+        webtest.typeAndClear("xpath=//input[@inputtype='datetime']", "2017-12-01 17:00:00");
+        webtest.runJs("var setDate=document.getElementsByName(\'enddt\')[0];setDate.removeAttribute('readonly')");
+        webtest.typeAndClear("name=enddt", "2017-12-01 18:00:00");
+        webtest.click("xpath=//a[@id='btnchange_joinname']");
+        webtest.click("xpath=//input[contains(@xname,'ä¿¡å‘¼å¼€å‘å›¢é˜Ÿ')]");
+        webtest.click("xpath=//input[@value='ç¡®å®š']");
+//        webtest.click("xpath=//u[contains(.,'ï¼‹æ·»åŠ æ–‡ä»¶')]");
+        webtest.runJs("window.scrollTo(0,document.body.scrollHeight)");
+        webtest.click("link=ï¼‹æ·»åŠ æ–‡ä»¶");
+        webtest.enterFrame("winiframe");
+        webtest.runJs("var setDate=document.getElementsByName(\'myform\')[0];setDate.removeAttribute('display:none')");
+        webtest.type("name=inputfile", "D:\\admin\\a.txt");
+        webtest.click("xpath=//button[contains(.,'å¼€å§‹ä¸Šä¼ ')]");
+        webtest.click("xpath=//button[contains(.,'ç¡®å®š')]");
+		webtest.click("xpath=//input[@value='ä¿å­˜(S)']");
+		webtest.click("xpath=//span[@id='indexuserl']");
+		webtest.click("xpath=//li[contains(.,' é€€å‡º')]");
+		webtest.click("xpath=//button[contains(.,'Â ç¡®å®š')]");
+		loginaction.loginByFront("ç£çŸ³","123456");
+		webtest.click("xpath=//a[contains(.,' Â æé†’ä¿¡æ¯2')]"); 
+		assertTrue(webtest.getHtmlSource().contains("åœ¨ä¼šå®¢å®¤,ä¸»é¢˜:ä¼šè®®"));
+        }
 	}

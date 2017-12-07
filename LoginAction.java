@@ -9,7 +9,7 @@ public LoginAction (WebDriverEngine webtest){
 }
 public void loginByFront(String userName,String passWord){
 	webtest.open("http://localhost:8032/xinhu/?m=login");
-//	webtest.typeAndClear("xpath=//input[@name='adminuser']",userName);
+//	webtest.typeAndClear("xpath=//div/input[@name='adminuser']",userName);
 	webtest.typeAndClear("name=adminuser",userName);
 	webtest.typeAndClear("xpath=//input[@placeholder='«Î ‰»Î√‹¬Î']",passWord);
 	webtest.click("xpath=//button[@name='button']");

@@ -18,6 +18,8 @@ public class CeshiFive  extends BaseTest{
 		webtest.enterFrame("openinputiframe");
 		webtest.typeAndClear("xpath=//input[@name='title']", "一个正确的标题");
 		webtest.typeAndClear("xpath=//input[contains(@name,'zuozhe')]", "部门");
+		webtest.click("xpath=//select[@class='inputs']");
+		webtest.click("xpath=//option[@value='通知公告']");
         webtest.runJs("var setDate=document.getElementsByName(\'indate\')[0];setDate.removeAttribute('readonly')");  
         webtest.typeAndClear("xpath=//input[@inputtype='date']", "2017-11-27");        
 		webtest.click("xpath=//input[@value='保存(S)']");
@@ -25,17 +27,16 @@ public class CeshiFive  extends BaseTest{
 	}
 	@Test(priority=1)
 	public void one() throws InterruptedException{
-	System.out.println("打印第22个测试用例");
-		webtest.open("http://localhost:8032/xinhu/?m=login");		
-		webtest.type("xpath=//input[@name='adminuser']","admin");
-		webtest.type("xpath=//input[@type='password']","123456");
-		webtest.click("xpath=//button[@name='button']");
+		System.out.println("打印第22个测试用例");
+		webtest.refresh();
 		webtest.click("xpath=//span[contains(.,'流程')]");
 		webtest.click("xpath=//div[@onclick='clickmenu(this,1,-1)']");
 		webtest.click("link=通知公告");
 		webtest.enterFrame("openinputiframe");
 		webtest.typeAndClear("xpath=//input[@name='title']", "一个正确的标题a");
 		webtest.typeAndClear("xpath=//input[contains(@name,'zuozhe')]", "部门");
+		webtest.click("xpath=//select[@class='inputs']");
+		webtest.click("xpath=//option[@value='通知公告']");
         webtest.runJs("var setDate=document.getElementsByName(\'indate\')[0];setDate.removeAttribute('readonly')");  
         webtest.typeAndClear("xpath=//input[@inputtype='date']", "2017-11-28");        
 		webtest.click("xpath=//input[@value='保存(S)']");
